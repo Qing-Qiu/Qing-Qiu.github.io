@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Prob1000</title>
+      <link href="/2021/12/25/Prob1000/"/>
+      <url>/2021/12/25/Prob1000/</url>
+      
+        <content type="html"><![CDATA[<h1 id="题干"><a href="#题干" class="headerlink" title="题干"></a><div align="center">题干</div></h1><p>甲和乙玩数字游戏，两人分别将 1 ~ n 之间的数字以一定次序排成 a<sub>1</sub>, ……, a<sub>n</sub> 和 b<sub>1</sub>, ……, b<sub>n</sub>, 将数字逐个比较。 若a<sub>i</sub> &gt; b<sub>i</sub>, 则甲得一分；若a<sub>i</sub> &lt; b<sub>i</sub>, 则乙得一分；若a<sub>i</sub> = b<sub>i</sub>, 则不计分。<br>设P<sub>n</sub>为数字范围为 1 ~ n 时甲乙得分相等的概率。<br>(1) 当 n = 5 时， 求P<sub>n</sub><br>(2) 求P<sub>n</sub>通项公式<br>(3) 求 $\lim\limits_{n\rightarrow\infty}P(n)$</p><h3 id="花絮"><a href="#花絮" class="headerlink" title="花絮"></a><div align="center">花絮</div></h3><p>这道题源自于苦逼的高三生活。埋在题海中，时常会有奇怪的灵感与想法，我就将它记了下来。虽然至今还是不会做来着。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> math </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> math </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CSP2021-J</title>
       <link href="/2021/12/24/CSP2021-J/"/>
       <url>/2021/12/24/CSP2021-J/</url>
@@ -20,7 +45,7 @@
       
         <tags>
             
-            <tag> contest </tag>
+            <tag> contests </tag>
             
         </tags>
       

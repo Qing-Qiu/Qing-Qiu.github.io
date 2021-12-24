@@ -22,17 +22,20 @@
     var CONFIG = {"hostname":"qing-qiu.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="秋刀鱼">
-<meta property="og:type" content="website">
-<meta property="og:title" content="秋刀鱼的博客">
-<meta property="og:url" content="https://qing-qiu.github.io/archives/2021/12/index.html">
+  <meta name="description" content="题干甲和乙玩数字游戏，两人分别将 1 ~ n 之间的数字以一定次序排成 a1, ……, an 和 b1, ……, bn, 将数字逐个比较。 若ai &gt; bi, 则甲得一分；若ai &lt; bi, 则乙得一分；若ai &#x3D; bi, 则不计分。设Pn为数字范围为 1 ~ n 时甲乙得分相等的概率。(1) 当 n &#x3D; 5 时， 求Pn(2) 求Pn通项公式(3) 求 $\lim\limits_{n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Prob1000">
+<meta property="og:url" content="https://qing-qiu.github.io/2021/12/25/Prob1000/index.html">
 <meta property="og:site_name" content="秋刀鱼的博客">
-<meta property="og:description" content="秋刀鱼">
+<meta property="og:description" content="题干甲和乙玩数字游戏，两人分别将 1 ~ n 之间的数字以一定次序排成 a1, ……, an 和 b1, ……, bn, 将数字逐个比较。 若ai &gt; bi, 则甲得一分；若ai &lt; bi, 则乙得一分；若ai &#x3D; bi, 则不计分。设Pn为数字范围为 1 ~ n 时甲乙得分相等的概率。(1) 当 n &#x3D; 5 时， 求Pn(2) 求Pn通项公式(3) 求 $\lim\limits_{n">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-24T16:11:03.000Z">
+<meta property="article:modified_time" content="2021-12-24T16:55:57.835Z">
 <meta property="article:author" content="Saury">
+<meta property="article:tag" content="math">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://qing-qiu.github.io/archives/2021/12/">
+<link rel="canonical" href="https://qing-qiu.github.io/2021/12/25/Prob1000/">
 
 
 <script id="page-configurations">
@@ -40,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | 秋刀鱼的博客</title>
+  <title>Prob1000 | 秋刀鱼的博客</title>
   
 
 
@@ -186,110 +189,122 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 4 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qing-qiu.github.io/2021/12/25/Prob1000/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Saury">
+      <meta itemprop="description" content="秋刀鱼">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="秋刀鱼的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Prob1000
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-12-25 00:11:03 / 修改时间：00:55:57" itemprop="dateCreated datePublished" datetime="2021-12-25T00:11:03+08:00">2021-12-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/math/" itemprop="url" rel="index"><span itemprop="name">math</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-12-25T00:11:03+08:00"
-              content="2021-12-25">
-          12-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/12/25/Prob1000/" itemprop="url">
-            <span itemprop="name">Prob1000</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-12-24T21:37:46+08:00"
-              content="2021-12-24">
-          12-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/12/24/CSP2021-J/" itemprop="url">
-            <span itemprop="name">CSP2021-J</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-12-12T17:35:00+08:00"
-              content="2021-12-12">
-          12-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/12/12/CBSE/" itemprop="url">
-            <span itemprop="name">正确括号序列编辑器(Correct Bracket Sequence Editor)</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-12-12T12:12:12+08:00"
-              content="2021-12-12">
-          12-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/12/12/blog0/" itemprop="url">
-            <span itemprop="name">我的第一篇博客</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        <h1 id="题干"><a href="#题干" class="headerlink" title="题干"></a><div align="center">题干</div></h1><p>甲和乙玩数字游戏，两人分别将 1 ~ n 之间的数字以一定次序排成 a<sub>1</sub>, ……, a<sub>n</sub> 和 b<sub>1</sub>, ……, b<sub>n</sub>, 将数字逐个比较。 若a<sub>i</sub> &gt; b<sub>i</sub>, 则甲得一分；若a<sub>i</sub> &lt; b<sub>i</sub>, 则乙得一分；若a<sub>i</sub> = b<sub>i</sub>, 则不计分。<br>设P<sub>n</sub>为数字范围为 1 ~ n 时甲乙得分相等的概率。<br>(1) 当 n = 5 时， 求P<sub>n</sub><br>(2) 求P<sub>n</sub>通项公式<br>(3) 求 $\lim\limits_{n\rightarrow\infty}P(n)$</p>
+<h3 id="花絮"><a href="#花絮" class="headerlink" title="花絮"></a><div align="center">花絮</div></h3><p>这道题源自于苦逼的高三生活。埋在题海中，时常会有奇怪的灵感与想法，我就将它记了下来。虽然至今还是不会做来着。</p>
 
     </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>谢谢你，秋刀鱼今天有吃的了！！！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Saury 微信支付">
+        <p>微信支付</p>
+      </div>
+
   </div>
-  
-  
-  
+</div>
 
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Saury
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://qing-qiu.github.io/2021/12/25/Prob1000/" title="Prob1000">https://qing-qiu.github.io/2021/12/25/Prob1000/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/math/" rel="tag"># math</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/12/24/CSP2021-J/" rel="prev" title="CSP2021-J">
+      <i class="fa fa-chevron-left"></i> CSP2021-J
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
@@ -342,6 +357,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%98%E5%B9%B2"><span class="nav-number">1.</span> <span class="nav-text">题干</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8A%B1%E7%B5%AE"><span class="nav-number">1.0.1.</span> <span class="nav-text">花絮</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -478,6 +494,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
