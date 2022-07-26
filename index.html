@@ -192,6 +192,94 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qing-qiu.github.io/2022/07/26/hdu%E5%A4%9A%E6%A0%A12021(1)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Saury">
+      <meta itemprop="description" content="秋刀鱼">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="秋刀鱼的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/26/hdu%E5%A4%9A%E6%A0%A12021(1)/" class="post-title-link" itemprop="url">hdu多校2021(1)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-26 21:44:37 / 修改时间：22:55:55" itemprop="dateCreated datePublished" datetime="2022-07-26T21:44:37+08:00">2022-07-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<p>题目链接：<a target="_blank" rel="noopener" href="https://vjudge.net/contest/504389#problem/F">VJ</a></p>
+<hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>There were a lot of balls in the factory of Ball Illusion Technology(BIT). Link, a boy, went there to get some balls, but suddenly, he found that there were too many ways to get balls.</p>
+<p>There are 2n buckets in the factory. Link may get kx balls from the 2x−1th bucket, where k is a non-negtive integer. He may also get at most x balls from the 2xth bucket.</p>
+<p>Link wanted to get m balls, and he wondered how many ways there were to take out exactly m balls. While Link is calculating the answer, he wants you to calculate it as well, and you should output the answer modulo 10^9+7</p>
+<h3 id="输入："><a href="#输入：" class="headerlink" title="输入："></a>输入：</h3><p>The input consists of multiple test cases.</p>
+<p>The first line contains an integer T (1 &lt;= T &lt;= 1e5) – the number of test cases.</p>
+<p>Each test case contains two integers n and m (1 &lt;= n, m &lt;= 1e6)</p>
+<h3 id="输出："><a href="#输出：" class="headerlink" title="输出："></a>输出：</h3><p>For each test case, print the answer modulo 1e9+7 in a single line.</p>
+<h3 id="样例输入1"><a href="#样例输入1" class="headerlink" title="样例输入1"></a>样例输入1</h3><p>4<br>1 1<br>2 2<br>3 3<br>1000000 1000000</p>
+<h3 id="样例输出1"><a href="#样例输出1" class="headerlink" title="样例输出1"></a>样例输出1</h3><p>2<br>6<br>20<br>192151600</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>题目的意思是一共有2n个篮子。第奇数(2x-1)个篮子可以拿kx个球，k为任意非负整数；第偶数(2x)个篮子可以拿[0,x]个球。问在这2n个篮子中拿取m个球有多少种情况，答案模1e9+7。</p>
+<p>先考虑第一个篮子，1是奇数，也就是说我们在第一个篮子可以拿任意非负整数个球；那么之后的篮子呢？我们可以考虑将篮子合并，考虑第2个和第3个篮子。第2个篮子可以拿0,1个球，第3个篮子可以拿2k个球。那么把第2个篮子和第3个篮子加起来，也就是说，可以取2k个球或者2k+1个球，而k是非负整数，也就是说，第2个篮子和第3个篮子合并后也可以取任意个球。同样的，考虑第4个和第5个篮子，可以取3k,3k+1,3k+2个球，也是全体非负整数。由此推广，我们可以发现，第2n-2个和第2n-1个篮子，可以取kn+b,b∈[0,n-1],取遍全体非负整数。（不知为什么，写到这里，脑子突然想到了完全剩余系这个概念/doge）然后第2n个篮子单独拎出来。</p>
+<p>第一步就这样完成了，经过合并，我们把2n个篮子分成了两部分。第一部分是n个可以取任意球的篮子，第二部分是只能取[0,n]个球的第n+1个篮子。我们的目的是找出在这n+1个篮子中取出m个球的方法数。</p>
+<p>我们用组合数学的思维来思考问题。将第n+1个篮子中所取的球数从0到n开始枚举（先考虑m&gt;=n)。假设第n+1个篮子中，我们取i个球，则我们剩下要取的球数就是m-i个球。我们的最终模型就变成了：对于每一个给定的i，在n个篮子，可以取[0,+∞)个球，要取m-i个球的方法数。</p>
+<p>我们可以想到高中学过的隔板法。即 a1+a2+a3+a4+……+an=m-i 这一不定方程的正整数解的个数。略有区别的是，我们的球可以不取。为了适配隔板法，我们把初始球数均设为1，式子变成了 (a1-1)+(a2-1)+(a3-1)+……+(an-1)=m+n-i。我们用隔板法可以很快把式子写出来了:$C_{m+n-i-1}^{n-1}$。</p>
+<p>第二步完成了。得到这个公式后，因为我们要将i从0到n代入并累加，并没有办法很快得到结果。我们要把公式进行转化。</p>
+<p>这里有一个组合数公式。$C_{n}^{m}$=$C_{n-1}^{m}$+$C_{n-1}^{m-1}$。将我们得到的式子 $C_{m+n-i-1}^{n-1}$ 展开，即 $C_{m+n-1}^{n-1}$+$C_{m+n}^{n-1}$+……+$C_{m-1}^{n-1}$，然后同时加上一个 $C_{m+n-1}^{n}$ ，原来的式子一一合并，得到 $C_{m+n}^{n}$，然后减去之前加上的 $C_{m+n-1}^{n-1}$，就是最后我们用代码直接实现的公式。即 $C_{m+n}^{n}$-$C_{m+n-1}^{n-1}$。</p>
+<p>第三步完成了。</p>
+<p>代码部分还有需要注意的。由于数据较大，使用快速幂求解，组合数中用到了除法，用逆元求解。关于快速幂和逆元，这里不再详细解释。</p>
+<h3 id="代码部分"><a href="#代码部分" class="headerlink" title="代码部分"></a>代码部分</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> jc[<span class="number">2020000</span>];</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">f</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a,<span class="keyword">long</span> <span class="keyword">long</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (b) &#123;</span><br><span class="line">		<span class="keyword">if</span> (b&amp;<span class="number">1</span>) &#123;</span><br><span class="line">			ans=ans*a%mod;</span><br><span class="line">		&#125;</span><br><span class="line">		a=a*a%mod;</span><br><span class="line">		b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">c</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a,<span class="keyword">long</span> <span class="keyword">long</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (a&gt;b) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> jc[b]*<span class="built_in">f</span>(jc[a],mod<span class="number">-2</span>)%mod*<span class="built_in">f</span>(jc[b-a],mod<span class="number">-2</span>)%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	jc[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">2000020</span>;i++)</span><br><span class="line">		jc[i]=jc[i<span class="number">-1</span>]*i%mod;</span><br><span class="line">	<span class="keyword">int</span> t;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;t);</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;	</span><br><span class="line">		<span class="keyword">int</span> n,m;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">		<span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="built_in">c</span>(n,m+n)-<span class="built_in">c</span>(n,m<span class="number">-1</span>)+mod;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans%mod);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://qing-qiu.github.io/2021/12/25/Prob1000/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -360,6 +448,98 @@
 <h3 id="【数据范围】-2"><a href="#【数据范围】-2" class="headerlink" title="【数据范围】"></a>【数据范围】</h3><p>对于 10% 的数据，n ≤ 5 。<br>对于 30% 的数据，n ≤ 1000 。<br>对于 70% 的数据，n ≤ 50000 。<br>对于 100% 的数据，1 ≤ n ≤ 2 × 10<sup>5</sup></p>
 <h3 id="【解题思路】-2"><a href="#【解题思路】-2" class="headerlink" title="【解题思路】"></a>【解题思路】</h3><p>首先，因为水果会被挑出，相当于会有数据的删除，所以我们会想到用列表容器来解决这道题目。STL库中有list容器，使用它应该会方便许多。<br>我定义了a，b两个List。a用来储存水果的种类，b用来储存水果的编号。由于不知道要进行多少次挑水果的操作，所以我用while(1)来开始循环。被挑走的水果具有的特征是与之前相邻一个的水果类型不同。而第一个水果肯定是要被挑走的，所以我们默认第0个水果的种类为-1。将a，b两个链表的迭代器同时遍历，如果元素满足上述条件，就输出，并记录它的位置，等到迭代器到下一个位置时，再将所记录的位置的元素删除。（这是一个坑，如果不等到迭代器到下一个位置，直接删除，会出问题）而我们退出循环的条件就是list容器的元素个数为0。</p>
 <h3 id="【代码部分】-2"><a href="#【代码部分】-2" class="headerlink" title="【代码部分】"></a>【代码部分】</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n,x,y;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">	list&lt;<span class="keyword">int</span>&gt; a;</span><br><span class="line">	list&lt;<span class="keyword">int</span>&gt; b;</span><br><span class="line">	list&lt;<span class="keyword">int</span>&gt;::iterator ita,itb,itaa,itbb;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;x);</span><br><span class="line">		a.<span class="built_in">push_back</span>(x);</span><br><span class="line">		b.<span class="built_in">push_back</span>(i);</span><br><span class="line">	&#125;	</span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">int</span> fruit=<span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">bool</span> flag=<span class="literal">false</span>;</span><br><span class="line">		itb=b.<span class="built_in">begin</span>();</span><br><span class="line">		<span class="keyword">for</span> (ita=a.<span class="built_in">begin</span>();ita!=a.<span class="built_in">end</span>();ita++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (flag) &#123;</span><br><span class="line">				a.<span class="built_in">erase</span>(itaa);</span><br><span class="line">				b.<span class="built_in">erase</span>(itbb);</span><br><span class="line">				flag=<span class="literal">false</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> ((*ita)!=fruit) &#123;</span><br><span class="line">				fruit=*ita;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,*itb);</span><br><span class="line">				itaa=ita; itbb=itb;</span><br><span class="line">				flag=<span class="literal">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			itb++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (flag) &#123;</span><br><span class="line">			a.<span class="built_in">erase</span>(itaa);</span><br><span class="line">			b.<span class="built_in">erase</span>(itbb);</span><br><span class="line">			flag=<span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">		<span class="keyword">if</span> (a.<span class="built_in">size</span>()&lt;=<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qing-qiu.github.io/2021/12/12/Permutation-Count/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Saury">
+      <meta itemprop="description" content="秋刀鱼">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="秋刀鱼的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/12/12/Permutation-Count/" class="post-title-link" itemprop="url">排列计数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-12 19:14:18" itemprop="dateCreated datePublished" datetime="2021-12-12T19:14:18+08:00">2021-12-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-12-24 21:50:14" itemprop="dateModified" datetime="2021-12-24T21:50:14+08:00">2021-12-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<p>题目链接：暂无</p>
+<hr>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>求有多少种长度为 n 的序列 A，满足以下条件：</p>
+<ul>
+<li>1∼n 这 n 个数在序列中各出现了一次；</li>
+<li>若第 i 个数 Ai 的值为 i，则称 i 是稳定的。序列恰好有 m 个数是稳定的。<br>满足条件的序列可能很多，序列数对 10 ^ 9 + 7 取模。</li>
+</ul>
+<h3 id="输入："><a href="#输入：" class="headerlink" title="输入："></a>输入：</h3><p>第一行一个数 T，表示有 T 组数据。<br>接下来 T 行，每行两个整数 n、m。</p>
+<h3 id="输出："><a href="#输出：" class="headerlink" title="输出："></a>输出：</h3><p>输出 T 行，每行一个数，表示求出的序列数。</p>
+<h3 id="样例输入1"><a href="#样例输入1" class="headerlink" title="样例输入1"></a>样例输入1</h3><p>5<br>1 0<br>1 1<br>5 2<br>100 50<br>10000 5000</p>
+<h3 id="样例输出1"><a href="#样例输出1" class="headerlink" title="样例输出1"></a>样例输出1</h3><p>0<br>1<br>20<br>578028887<br>60695423</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>遇到这道题两次了<br>我觉得这道题的知识点非常有趣<br>首先，错排公式我在高中数学中就接触过，就相当于n个人各有一个座位，每个人都坐在别人的位置上的种数。<br>前几项是0 1 2 9 44 265<br>我对这个数列非常喜欢<br>2=(0+1)*2<br>9=(1+2)*3<br>44=(2+9)*4<br>265=(9+44)*5<br><code>a[n]=(a[n-1]+a[n-2])*(n-1)</code><br>至于通项公式也可以推一推或者上网搜一搜<br>可以看出<br>这道题的意思就是其中的m个数在原来的位置，剩下的(n-m)个数进行了错排<br>也就是<br><code>C(m,n)*a[n-m]</code><br>但这个数据很大，题目说需要取模<br>那我们很容易就把阶乘和错排的数组边乘边取模给做完了<br>C(m,n)中有一步除以(n-m)!的过程该怎么办呢？<br>这时我们想到可以求逆元<br>费马小定理是指<br>如果p是一个质数，而整数a不是p的倍数，则有a^(p-1) ≡ 1 (mod p)<br>由费马小定理可知<br>a * a ^ (p-2) ≡ 1 (mod p)<br>a ^ (p-2) ≡ 1/a (mod p)<br>因此可知逆元就是a^(p-2)%p<br>因此我们做了一个存放逆元的数组<br>是不是直接输出就好了呢？<br>我们试了一下发现TLE<br>因此快快用上快速幂模板来加快我们求逆元的速度<br>快速幂这个算法体现了分治的思想<br>把每次的乘方拆成两半来解决<br>速度一下子就减了不少<br>我们试着交了一下，AC！</p>
+<h3 id="代码部分"><a href="#代码部分" class="headerlink" title="代码部分"></a>代码部分</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">long</span> <span class="keyword">long</span> k=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> cp[<span class="number">1000020</span>],jc[<span class="number">1000020</span>],ny[<span class="number">1000020</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a,<span class="keyword">long</span> <span class="keyword">long</span> b)</span>   <span class="comment">//快速幂模板</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (b&gt;<span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> (b%<span class="number">2</span>==<span class="number">1</span>) ans=ans*a%k;</span><br><span class="line">		b/=<span class="number">2</span>;</span><br><span class="line">		a=a*a%k;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cp[<span class="number">0</span>]=<span class="number">1</span>,cp[<span class="number">2</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;=<span class="number">1000000</span>;i++)</span><br><span class="line">		cp[i]=(i<span class="number">-1</span>)*(cp[i<span class="number">-1</span>]+cp[i<span class="number">-2</span>])%k;<span class="comment">//cp即由错排公式从第0~n个元素组成的数组</span></span><br><span class="line">	jc[<span class="number">0</span>]=<span class="number">1</span>,jc[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=<span class="number">1000000</span>;i++)</span><br><span class="line">		jc[i]=jc[i<span class="number">-1</span>]*i%k;<span class="comment">//jc即阶乘</span></span><br><span class="line">	ny[<span class="number">0</span>] =<span class="built_in">f</span>(jc[<span class="number">0</span>],k - <span class="number">2</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">1000000</span>;i++)</span><br><span class="line">		ny[i]=<span class="built_in">f</span>(jc[i],k<span class="number">-2</span>)%k;<span class="comment">//ny即逆元</span></span><br><span class="line">	<span class="keyword">int</span> t;</span><br><span class="line">	cin&gt;&gt;t;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=t;i++) &#123;</span><br><span class="line">		<span class="keyword">long</span> <span class="keyword">long</span> n,m;</span><br><span class="line">		cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">		cout&lt;&lt;(jc[n]*ny[m]%k*ny[n-m]%k*cp[n-m])%k&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h3><ul>
+<li>学到了快速幂模板</li>
+<li>学到了用费马小定理推得的逆元，成功解决了除法取模的问题。</li>
+</ul>
+
       
     </div>
 
@@ -623,7 +803,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -654,7 +834,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="http://www.cnpatrickstar.com/" title="http:&#x2F;&#x2F;www.cnpatrickstar.com&#x2F;" rel="noopener" target="_blank">派大星</a>
+          <a href="https://blog.cnpatrickstar.com/" title="https:&#x2F;&#x2F;blog.cnpatrickstar.com&#x2F;" rel="noopener" target="_blank">派大星</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="http://www.baidu.com/" title="http:&#x2F;&#x2F;www.baidu.com&#x2F;" rel="noopener" target="_blank">友情链接2</a>
@@ -681,7 +861,7 @@
 <div class="copyright">
   
   &copy; 2021-12 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
