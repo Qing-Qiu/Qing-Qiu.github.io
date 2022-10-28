@@ -192,6 +192,78 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qing-qiu.github.io/2022/10/28/Simple-Fibonacci/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Saury">
+      <meta itemprop="description" content="秋刀鱼">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="秋刀鱼的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/28/Simple-Fibonacci/" class="post-title-link" itemprop="url">Simple Fibonacci</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-10-28 15:08:12 / 修改时间：15:12:10" itemprop="dateCreated datePublished" datetime="2022-10-28T15:08:12+08:00">2022-10-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<p>题目链接：<a target="_blank" rel="noopener" href="https://vjudge.net/contest/522530">VJ(private)</a></p>
+<hr>
+<h2 id="Simple-Fibonacci"><a href="#Simple-Fibonacci" class="headerlink" title=" Simple Fibonacci "></a><div align="center"> Simple Fibonacci </div></h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>求斐波那契数列第n项对于1004535809取模的值。</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>正解是矩阵快速幂（之后补）。<br>我用了二次剩余的板子写，直接代入通项公式。</p>
+<h3 id="代码部分"><a href="#代码部分" class="headerlink" title="代码部分"></a>代码部分</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">long</span> <span class="keyword">long</span> p=<span class="number">1004535809</span>;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">f</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a,<span class="keyword">long</span> <span class="keyword">long</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (b) &#123;</span><br><span class="line">		<span class="keyword">if</span> (b&amp;<span class="number">1</span>) ans=ans*a%p;</span><br><span class="line">		a=a*a%p;</span><br><span class="line">		b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">TS</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p==<span class="number">2</span>) <span class="keyword">return</span> (n&amp;<span class="number">1</span>)?<span class="number">1</span>:<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">f</span>(n,p&gt;&gt;<span class="number">1</span>)+<span class="number">1</span>==p) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span> (p&amp;<span class="number">2</span>) <span class="keyword">return</span> <span class="built_in">f</span>(n,p+<span class="number">1</span>&gt;&gt;<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">int</span> s=__builtin_ctzll(p^<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> q=p&gt;&gt;s,z=<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span> (;<span class="built_in">f</span>(z,p&gt;&gt;<span class="number">1</span>)==<span class="number">1</span>;++z);</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> c=<span class="built_in">f</span>(z,q),r=<span class="built_in">f</span>(n,q+<span class="number">1</span>&gt;&gt;<span class="number">1</span>),t=<span class="built_in">f</span>(n,q),tmp;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> m=s,i;t!=<span class="number">1</span>;) &#123;</span><br><span class="line">        <span class="keyword">for</span> (i=<span class="number">0</span>,tmp=t;tmp!=<span class="number">1</span>;++i) tmp=tmp*tmp%p;</span><br><span class="line">        <span class="keyword">for</span> (;i&lt;--m;) c=c*c%p;</span><br><span class="line">        r=r*c%p;</span><br><span class="line">        c=c*c%p;</span><br><span class="line">        t=t*c%p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">long</span> <span class="keyword">long</span> q=<span class="built_in">TS</span>(<span class="number">5</span>);</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> n;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	cout&lt;&lt;<span class="built_in">f</span>(q,p<span class="number">-2</span>)*(<span class="built_in">f</span>((<span class="number">1</span>+q)*<span class="built_in">f</span>(<span class="number">2</span>,p<span class="number">-2</span>)%p,n)-<span class="built_in">f</span>((<span class="number">1</span>-q)*<span class="built_in">f</span>(<span class="number">2</span>,p<span class="number">-2</span>)%p,n)+p)%p;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://qing-qiu.github.io/2022/10/28/Euler-Sieve/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -217,7 +289,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-10-28 14:46:34 / 修改时间：15:03:58" itemprop="dateCreated datePublished" datetime="2022-10-28T14:46:34+08:00">2022-10-28</time>
+              <time title="创建时间：2022-10-28 14:46:34 / 修改时间：15:09:45" itemprop="dateCreated datePublished" datetime="2022-10-28T14:46:34+08:00">2022-10-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -241,9 +313,9 @@
 
       
           <hr>
-<p>题目链接：<a target="_blank" rel="noopener" href="https://vjudge.net/contest/522530">VJ(private)</a> [POJ]</p>
+<p>题目链接：<a target="_blank" rel="noopener" href="https://vjudge.net/contest/522530">VJ(private)</a></p>
 <hr>
-<h2 id="Euler-Sieve"><a href="#Euler-Sieve" class="headerlink" title=" Euler Sieve "></a><div align="center"> Euler Sieve </div></h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>定义函数f为约数和函数和欧拉函数的卷积。求f前n项和。</p>
+<h2 id="Euler-Sieve"><a href="#Euler-Sieve" class="headerlink" title=" Euler Sieve "></a><div align="center"> Euler Sieve </div></h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>定义函数f为约数和函数和欧拉函数的卷积。求f前n项和。<br>1 &lt;= n &lt;= 5e6</p>
 <h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>用欧拉筛（线性筛）筛素数的同时求出每项的欧拉函数和约数和函数。用双重循环将f的前n项和直接累加。</p>
 <h3 id="代码部分"><a href="#代码部分" class="headerlink" title="代码部分"></a>代码部分</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">int</span> prime[<span class="number">5050000</span>];</span><br><span class="line"><span class="keyword">bool</span> flag[<span class="number">5050000</span>];</span><br><span class="line"><span class="keyword">int</span> phi[<span class="number">5050000</span>];</span><br><span class="line"><span class="keyword">int</span> f[<span class="number">5050000</span>];</span><br><span class="line"><span class="keyword">int</span> g[<span class="number">5050000</span>];</span><br><span class="line"><span class="keyword">int</span> cnt;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	flag[<span class="number">1</span>]=<span class="literal">true</span>;</span><br><span class="line">	phi[<span class="number">1</span>]=f[<span class="number">1</span>]=g[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (!flag[i]) &#123;</span><br><span class="line">			prime[++cnt]=i;</span><br><span class="line">			phi[i]=i<span class="number">-1</span>;</span><br><span class="line">			f[i]=i+<span class="number">1</span>;</span><br><span class="line">			g[i]=i+<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;i*prime[j]&lt;=n;j++) &#123;</span><br><span class="line">			flag[i*prime[j]]=<span class="literal">true</span>;</span><br><span class="line">			<span class="keyword">if</span> (i%prime[j]==<span class="number">0</span>) &#123;</span><br><span class="line">				phi[i*prime[j]]=phi[i]*prime[j];</span><br><span class="line">				g[i*prime[j]]=g[i]*prime[j]+<span class="number">1</span>;</span><br><span class="line">				f[i*prime[j]]=f[i]/g[i]*g[i*prime[j]];</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			phi[i*prime[j]]=phi[i]*(prime[j]<span class="number">-1</span>);</span><br><span class="line">			f[i*prime[j]]=f[i]*f[prime[j]];</span><br><span class="line">			g[i*prime[j]]=<span class="number">1</span>+prime[j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n/i;j++)</span><br><span class="line">			ans+=phi[i]*f[j];</span><br><span class="line">	cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -967,7 +1039,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
